@@ -50,7 +50,7 @@ const MyProject = () => {
                 <div className="skeleton h-4 w-full"></div>
                 <div className="skeleton h-4 w-full"></div>
               </div>
-            )): <div className="absolute text-white font-bold text-xl sm:text-2xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">No Projects, add the project</div>
+            )): <div className="absolute text-white font-bold text-xl sm:text-2xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap">No Projects, add the project</div>
           }
       </div>
       <Pagination

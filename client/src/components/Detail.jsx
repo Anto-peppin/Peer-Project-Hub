@@ -12,7 +12,6 @@ const Detail = () => {
   const { _id } = useParams();
   const [commentState, setCommentState] = useState(false);
   const [isComment, setIsComment] = useState(false);
-
   useEffect(() => {
     const getDetails = async () => {
       try {
@@ -86,8 +85,8 @@ const Detail = () => {
                   onClick={() => handleLike(detailData[0]?._id)}
                 />
               </div>
-              <span className="flex items-center gap-0.5">
-                {(detailData[0]?.likes).length}likes
+              <span className="flex items-center">
+                {(detailData[0]?.likes).length} likes
               </span>
             </div>
             <div className="flex gap-1 items-center">
@@ -98,15 +97,15 @@ const Detail = () => {
               >
                 <MdInsertComment className=" text-xl cursor-pointer" />
               </div>
-              <span className="flex items-center gap-0.5">
-                {(detailData[0]?.comment).length}comments
+              <span className="flex items-center">
+                {(detailData[0]?.comment).length} comments
               </span>
             </div>
           </div>
           {commentState && (
             <Content
               id={_id}
-              isComment={setIsComment}
+              setIsComment={setIsComment}
               comment={detailData[0]?.comment}
             />
           )}

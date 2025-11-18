@@ -4,8 +4,9 @@ import axios from "axios";
 import { useEffect } from "react";
 import { auth } from "./FirebaseConfig";
 import { useState } from "react";
-const Content = ({ id, isComment, comment }) => {
+const Content = ({ id, setIsComment, comment }) => {
   const [userMail, setUserMail] = useState("");
+  const[finished,setFinished] = useState(false)
   useEffect(() => {
     const getMail = async () => {
       auth.onAuthStateChanged((user) => {
@@ -19,15 +20,20 @@ const Content = ({ id, isComment, comment }) => {
 
   const handleComment = async (data) => {
     try {
+      setFinished(true)
       const respo = await axios.post(`${import.meta.env.VITE_BACK}/comment`, {
         id,
         userMail,
         data: data.comment,
       });
-      isComment((pre) => !pre);
+      
       reset();
+      setIsComment(new Date())
     } catch (error) {
       console.log(error.message);
+    }
+    finally{
+      setFinished(false)
     }
   };
 
@@ -68,8 +74,8 @@ const Content = ({ id, isComment, comment }) => {
             className="grow"
             placeholder="Comment your thoughts"
           />
-          <kbd className="kbd kbd-sm">⌘</kbd>
-          <button type="submit" className="kbd kbd-sm">
+          <kbd className={`kbd kbd-sm ${finished?'cursor-not-allowed':'cursor-pointer'} `}>{finished?<span className="loading loading-spinner loading-xs text-primary"></span>:'⌘'}</kbd>
+          <button disabled={finished} type="submit" className="kbd kbd-sm">
             submit
           </button>
         </label>
