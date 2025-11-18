@@ -52,7 +52,7 @@ app.put('/likes',async(req,res)=>{
 
 app.post('/comment',async(req,res)=>{
     const {id,userMail,data} = req.body
-   const respo = await allProjects.updateOne({_id:id},{$push:{comment:{mail:userMail,data:data}}})
+   const respo = await allProjects.updateOne({_id:id},{$push:{comment:{$each:[{mail:userMail,data:data}],$position:0}}})
    res.send(respo)
 
   
