@@ -73,7 +73,8 @@ const Upload = () => {
           }/${type}/upload`,
           data
         );
-        setUrl(respo.data.url);
+        const url = (respo.data.url).replace("http://", "https://");
+        setUrl(url);
         setFileName(file.name);
 
         Swal.fire({
