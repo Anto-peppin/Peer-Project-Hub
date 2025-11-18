@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+.left_box,.right_box{
+    animation: left .5s linear forwards;
+}
+.right_box{
+    animation-duration: .8s;
+}
+@keyframes left {
+0%{
+    opacity:0;
+    top: 30%;
+}
+100%{
+    opacity:1;
+    top:0
+}
+    
+}
+.bg_change{
+    animation: bg 1s linear forwards;
+}
+@keyframes bg {
+    0%{
+background-color: rgba(0, 0, 0, 0.062);
+    }
+    100%{
+background-color: rgba(0, 0, 0, 0.473);
+    }
+    
+}
