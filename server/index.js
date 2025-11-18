@@ -22,7 +22,6 @@ app.get('/',(req,res)=>{
 
 app.get('/allprojects',async(req,res)=>{
    const respo = await allProjects.find().sort({_id:-1})
-
    res.send(respo)
 })
 

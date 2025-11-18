@@ -2,7 +2,6 @@ import React, { createContext, useEffect, useState } from "react";
 import { auth } from "./FirebaseConfig";
 import axios from "axios";
 import { Outlet, useNavigate } from "react-router-dom";
-import Nav from "./Nav";
 import Aside from "./Aside";
 import Inputs from "./Inputs";
 export const Context = createContext();
