@@ -152,7 +152,7 @@ const SignUp = () => {
 
           <form
             onSubmit={handleSubmit(handleSignUp)}
-            className=" flex flex-col gap-2 md:gap-1.5 py-2 "
+            className=" flex flex-col gap-2 gap-y-3 md:gap-1.5 py-2 "
           >
             <div className="flex flex-col gap-0.5">
               <label htmlFor="name" className="text-xl font-bold ">
