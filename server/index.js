@@ -66,6 +66,11 @@ app.get('/total/myproject',async(req,res)=>{
 
 })
 
+app.get('/getalluser',async(req,res)=>{
+    const info = await user.find()
+    res.send(info.length)
+})
+
 app.post('/myproject',async(req,res)=>{
 try {
     const respo = await allProjects.insertOne(req.body.final)

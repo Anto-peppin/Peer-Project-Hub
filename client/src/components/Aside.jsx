@@ -21,6 +21,8 @@ const Aside = ({ data }) => {
   const [totalUser, setTotalUser] = useState(0);
   const { userData } = useContext(Context);
 
+// console.log(totalUser)
+
   useEffect(() => {
     setUserDetail(userData);
   }, [userData]);
@@ -31,18 +33,15 @@ const Aside = ({ data }) => {
         const respo = await axios.get(
           `${import.meta.env.VITE_BACK}/allprojects`
         );
-        const arr = [];
-        for (let total of respo.data) {
-          arr.push(total.mail);
-        }
-        const remainder = new Set(arr);
-        setTotalUser([...remainder].length);
-
+        const respo1 = await axios.get(`${import.meta.env.VITE_BACK}/getalluser`)
+        setTotalUser(respo1.data);
+        
         setTotalDataLength(respo.data.length);
       } catch (error) {
         console.log(error.message);
       }
     };
+    
     getAllDataAside();
   }, []);
 
