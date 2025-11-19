@@ -23,7 +23,7 @@ const MostLiked = () => {
     };
     getAllData();
   }, []);
-  const PAGE_SIZE = 10;
+  const PAGE_SIZE = 12;
   const [currentPage, setCurrentPage] = useState(1);
   const startIndex = (currentPage - 1) * PAGE_SIZE;
   const visibleData = allPro.slice(startIndex, startIndex + PAGE_SIZE);

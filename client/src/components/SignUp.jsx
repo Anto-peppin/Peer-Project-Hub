@@ -141,12 +141,12 @@ const SignUp = () => {
       </div>
       <div className="w-full h-full  relative text-black flex justify-center items-center ">
         <img
-          src="./sm-bg.jpg"
+          src="./signup_bg.jpg"
           loading="lazy"
           className="absolute inset-0 w-full h-full object-cover md:hidden "
         />
         <div className="w-[95%] sm:[90%] md:w-[90%] h-fit relative p-2  flex flex-col gap-4 md:gap-3  border-2 text-white md:text-black border-white md:border-0 backdrop-blur-[5px] bg-black/40 md:bg-white rounded-lg ">
-          <div className='font-bold text-5xl  text-center bg-[url("./signup_bg.jpg")] bg-cover bg-clip-text text-transparent '>
+          <div className='font-bold text-5xl  text-center  text-white md:bg-[url("/signup_bg.jpg")] md:text-transparent md:bg-clip-text '>
             SIGNUP
           </div>
 
@@ -162,7 +162,7 @@ const SignUp = () => {
                 {...register("name")}
                 id="name"
                 type="text"
-                className="border-2 border-white md:border-black outline-0 p-1 px-2 text-lg rounded-xl"
+                className="border-2 border-white md:border-black outline-0 p-1 px-2 text-2xl rounded-xl"
                 placeholder="Enter your name..."
               />
               {errors?.name && (
@@ -179,7 +179,7 @@ const SignUp = () => {
                 {...register("mail")}
                 id="mail"
                 type="email"
-                className="border-2 border-white md:border-black outline-0 p-1 px-2 text-lg rounded-xl"
+                className="border-2 border-white md:border-black outline-0 p-1 px-2 text-2xl rounded-xl"
                 placeholder="Enter your Email"
               />
               {errors?.mail && (
@@ -196,7 +196,7 @@ const SignUp = () => {
                 {...register("pass")}
                 id="pass"
                 type="password"
-                className="border-2 border-white md:border-black outline-0 p-1 px-2 text-lg rounded-xl"
+                className="border-2 border-white md:border-black outline-0 p-1 px-2 text-2xl rounded-xl"
                 placeholder="Enter Password"
               />
               {errors?.pass && (
@@ -241,7 +241,7 @@ const SignUp = () => {
             <div className="">
               Already have an Account?{" "}
               <span
-                className="text-blue-500 cursor-pointer hover:font-bold"
+                className="text-blue-500 cursor-pointer font-bold"
                 onClick={() => navigate("/login")}
               >
                 Login

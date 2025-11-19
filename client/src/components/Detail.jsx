@@ -59,10 +59,10 @@ const Detail = () => {
           <p className="w-full sm:w-[80%] mb-1 text-end mx-auto px-2 ">
             {detailData[0]?.dataType}
           </p>
-          <div className="w-full sm:w-[80%] mb-1 h-[300px] mx-auto border rounded-2xl ">
+          <div className="w-full sm:w-[80%] flex justify-center items-center mb-3 h-[300px] mx-auto border rounded-2xl border-gray-400">
             {detailData[0]?.dataType == "image" ? (
               <img
-                className="w-full h-full rounded-2xl"
+                className=" h-full object-contain rounded-2xl shadow-[2px_2px_5px_black] shadow-black"
                 src={detailData[0]?.fileUrl}
                 alt=""
               />
@@ -161,14 +161,17 @@ const Detail = () => {
 
             <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border px-2 sm:px-4 w-full ">
               <legend className="fieldset-legend text-xl ">GitHub URL</legend>
-              <a
+              {
+                detailData[0]?.git ?    <a
                 className="text-xl text-blue-500 cursor-pointer"
                 href={detailData[0]?.git}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {detailData[0]?.git}
-              </a>
+              </a> : <p>link not available</p>
+              }
+           
             </fieldset>
           </div>
         </div>

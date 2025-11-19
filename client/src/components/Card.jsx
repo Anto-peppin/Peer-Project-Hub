@@ -6,8 +6,8 @@ const Card = ({ data }) => {
   return (
     <div className="card bg-base-100 w-[85%] sm:w-[250px] h-60 hover:scale-102 transition-all duration-300 shadow-[2px_2px_2px_black]">
       {data.dataType == "image" ? (
-        <figure>
-          <img src={data.fileUrl} alt={data.title} />
+        <figure className="w-full h-[150px] border-b border-gray-500 border-dashed">
+          <img className='w-full h-full object-cover' src={data.fileUrl} alt={data.title} />
         </figure>
       ) : (
         <video
@@ -27,14 +27,14 @@ const Card = ({ data }) => {
           <p className="text-sm font-bold">{data?.uName}</p>
           <div className="flex gap-1 items-center">
             <div className="text-[12px] ">
-              <span className="font-bold">{(data?.likes).length}</span>
+              <span className="font-bold">{(data?.likes).length} </span>
               likes
             </div>
           </div>
         </div>
       </div>
 
-      <div className="w-full my-1 flex justify-between items-center px-1 ">
+      <div className="w-full my-1 flex justify-between items-center px-2 mb-2 ">
         <div>{data?.time}</div>
         <div
           onClick={() => navigate(`/Detail/${data._id}`)}

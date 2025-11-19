@@ -135,7 +135,7 @@ const Aside = ({ data }) => {
         </div>
         <div
           onClick={handleLogOut}
-          className="flex gap-1 items-center w-full px-2 py-1 rounded-xl cursor-pointer border bg-red-400 justify-between"
+          className="flex gap-1 items-center w-full px-2 py-1 mt-5 mb-3 rounded-xl cursor-pointer border bg-red-400 justify-between"
         >
           Logout
           <RiLogoutCircleLine />

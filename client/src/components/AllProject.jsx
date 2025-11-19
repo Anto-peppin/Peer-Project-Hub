@@ -25,7 +25,7 @@ const AllProject = () => {
   const filteredData = allPro.filter((item) =>
     item?.title?.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  const PAGE_SIZE = 10;
+  const PAGE_SIZE = 12;
   const [currentPage, setCurrentPage] = useState(1);
   const startIndex = (currentPage - 1) * PAGE_SIZE;
   const visibleData = filteredData.slice(startIndex, startIndex + PAGE_SIZE);
@@ -48,7 +48,7 @@ const AllProject = () => {
         <kbd className="kbd kbd-sm">K</kbd>
       </label>
 
-      <div className="border p-1 py-3 flex justify-evenly min-h-[calc(100vh-80px)] flex-wrap gap-3 bg-[#141a27]  ">
+      <div className="border p-1 py-3 flex justify-evenly min-h-[calc(100vh-80px)] flex-wrap gap-y-6 gap-3 bg-[#141a27]  ">
         {visibleData?.length > 0
           ? visibleData.map((val, ind) => <Card key={ind} data={val} />)
           : new Array(10).fill(0).map((_, ind) => (

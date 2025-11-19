@@ -204,7 +204,7 @@ const Upload = () => {
 
           <div className=" w-full py-10 ">
             <div
-              accept="image/*,video/*"
+              accept="image/*,video/*,.mkv,.mov,.avi,.flv,.m4v"
               onDrop={handleDrop}
               onDragOver={handleDragOver}
               className={`flex flex-col items-center gap-2 justify-center border-2 rounded-xl border-dashed p-2 text-center  w-[80%] mx-auto h-[200px] `}
@@ -213,7 +213,7 @@ const Upload = () => {
                 Upload or Drop a Photo or Video
               </h2>
               <input
-                accept="image/*,video/*"
+                accept="image/*,video/*,.mkv,.mov,.avi,.flv,.m4v"
                 className="hidden"
                 ref={inp}
                 onChange={handleRead}
@@ -236,7 +236,6 @@ const Upload = () => {
               </button>
 
               {fileName && <p className="text-[10px]  ">{fileName}</p>}
-              {/* {error && <p className="text-[9px] text-red-500">{error}</p>} */}
             </div>
           </div>
 

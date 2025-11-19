@@ -5,7 +5,7 @@
     animation: left .5s linear forwards;
 }
 .right_box{
-    animation-duration: .8s;
+    animation-duration: .4s;
 }
 @keyframes left {
 0%{

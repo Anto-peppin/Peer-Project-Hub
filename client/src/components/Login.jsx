@@ -82,19 +82,19 @@ const SignUp = () => {
           <h2 className="font-bold text-3xl mb-2 text-white text-center md:hidden">
             Login Page
           </h2>
-          <h3 className="text-center mb-2 text-orange-500 text-xl font-bold ">
+          <h3 className="text-center mb-2 text-orange-500 text-2xl font-bold ">
             Welcome to Peer Project Hub
           </h3>
 
           <form
-            className="w-full p-2 text-white flex flex-col gap-2"
+            className="w-full p-2 text-white text-xl flex flex-col gap-2"
             onSubmit={handleSubmit(handlelogin)}
           >
             <div className="flex flex-col gap-1 font-bold">
               <label htmlFor="mail">Email</label>
               <input
                 {...register("mail")}
-                className="border-2 outline-0 focus:border-orange-500 border-white p-1 rounded-xl "
+                className="border-2 outline-0 focus:border-orange-500 border-white p-2 rounded-xl "
                 placeholder="Enter the Email"
                 type="mail"
               />
@@ -104,7 +104,7 @@ const SignUp = () => {
               <label htmlFor="password">Password</label>
               <input
                 {...register("pass")}
-                className="border-2 outline-none focus:border-orange-500 border-white p-1 rounded-xl "
+                className="border-2 outline-none focus:border-orange-500 border-white p-1.5 rounded-xl "
                 placeholder="Enter the Password"
                 type="mail"
               />
@@ -115,7 +115,7 @@ const SignUp = () => {
               disabled={loading}
               className={`bg-orange-500 ${
                 loading ? "cursor-not-allowed" : "cursor-pointer"
-              } text-white text-lg rounded-2xl mt-3 hover:font-bold `}
+              } text-white text-lg p-1 rounded-2xl mt-3 font-bold hover:bg-orange-600 transition-all duration-300 `}
             >
               {loading ? (
                 <span className="loading loading-spinner loading-sm"></span>
@@ -126,7 +126,7 @@ const SignUp = () => {
             <p>
               Don't have an Account?{" "}
               <span
-                className="text-blue-500 cursor-pointer hover:font-bold"
+                className="text-blue-500 cursor-pointer font-bold"
                 onClick={() => navigate("/signup")}
               >
                 SignUp
