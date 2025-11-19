@@ -139,7 +139,7 @@ const SignUp = () => {
           <div className="h-[30px]"></div>
         </div>
       </div>
-      <div className="w-full h-full  relative text-black flex justify-center items-center ">
+      <div className="w-full h-full p-2 relative text-black flex justify-center items-center ">
         <img
           src="./signup_bg.jpg"
           loading="lazy"
