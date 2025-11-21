@@ -170,7 +170,7 @@ updated()
     `
   }
 });
-     navigate('/main/allproject')
+     navigate('/main/myproject')
      
       
 
