@@ -10,6 +10,7 @@ const MyProject = () => {
   const { userData } = useContext(Context);
   const [allPro, setAllPro] = useState([]);
   const[loading,setLoading] = useState(true)
+  const [reUpdateDel,setReUpdateDel] = useState(false)
   useEffect(() => {
     const getMyProject = async () => {
   try {
@@ -30,7 +31,8 @@ const MyProject = () => {
   }
     };
     getMyProject();
-  }, [userData]);
+  }, [userData,reUpdateDel]);
+
   const PAGE_SIZE = 12;
   const [currentPage, setCurrentPage] = useState(1);
   const startIndex = (currentPage - 1) * PAGE_SIZE;
@@ -39,7 +41,7 @@ const MyProject = () => {
     <>
       <div className="border p-1 py-3 relative flex justify-evenly min-h-[calc(100vh-80px)] flex-wrap gap-3 bg-[#141a27] ">
         {visibleData?.length > 0 
-          ? visibleData.map((val, ind) => <Card key={ind} data={val} />)
+          ? visibleData.map((val, ind) => <Card key={ind} data={val} editState={true} setReUpdateDel={setReUpdateDel} />)
           :visibleData?.length <= 0 && loading ? new Array(10).fill(0).map((_, ind) => (
               <div
                 key={ind}

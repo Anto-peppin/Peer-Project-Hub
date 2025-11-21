@@ -6,7 +6,7 @@ import { auth } from "./FirebaseConfig";
 import { useState } from "react";
 import Swal from "sweetalert2";
 
-const SignUp = () => {
+const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -106,7 +106,7 @@ const SignUp = () => {
                 {...register("pass")}
                 className="border-2 outline-none focus:border-orange-500 border-white p-1.5 rounded-xl "
                 placeholder="Enter the Password"
-                type="mail"
+                type="password"
               />
               <p className="text-red-500 text-[11px]"></p>
             </div>
@@ -146,4 +146,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Login;

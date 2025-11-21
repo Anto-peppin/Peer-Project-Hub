@@ -5,9 +5,12 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Swal from "sweetalert2";
 import { auth } from "./FirebaseConfig";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Upload = () => {
+ const {id} = useParams()
+ const[editMode,setEditMode] = useState(false)
+
   const navigate = useNavigate();
   const schema = yup.object().shape({
     title: yup.string().required("Enter the title"),
@@ -18,6 +21,33 @@ const Upload = () => {
   const [uMail, setUmail] = useState("");
   const [uName, setUname] = useState("");
   const [bgColor, setBgColor] = useState("");
+
+    const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({ defaultValues: { tech: [] }, resolver: yupResolver(schema) });
+
+// lkjhblkjhbjbkbnkb,mnm
+
+   useEffect(()=>{
+const updated = async()=>{
+try {
+    if(id){
+    setEditMode(true)
+    const respo = await axios.get(`${import.meta.env.VITE_BACK}/detail`,{params:{id}})
+    reset(respo?.data[0])
+
+    
+  }
+} catch (error) {
+  console.log(error);
+  
+}
+}
+updated()
+ },[])
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -40,18 +70,14 @@ const Upload = () => {
     });
   }, []);
 
+
   const [load1, setLoad1] = useState(false);
   const [load2, setLoad2] = useState(false);
   const [fileName, setFileName] = useState("");
   const [dataType, setDataType] = useState("");
   const [url, setUrl] = useState(null);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm({ defaultValues: { tech: [] }, resolver: yupResolver(schema) });
+
 
   const inp = useRef();
 
@@ -123,7 +149,34 @@ const Upload = () => {
     return date;
   };
   const uploadForm = async (e) => {
-    try {
+    if(editMode){
+     const respo = await axios.post(`${import.meta.env.VITE_BACK}/update`,{e,id})
+     console.log(respo.data);
+     setEditMode(false)
+     Swal.fire({
+  title: "Update Successfully",
+  showClass: {
+    popup: `
+      animate__animated
+      animate__fadeInUp
+      animate__faster
+    `
+  },
+  hideClass: {
+    popup: `
+      animate__animated
+      animate__fadeOutDown
+      animate__faster
+    `
+  }
+});
+     navigate('/main/allproject')
+     
+      
+
+    }
+else{
+      try {
       if (url) {
         setLoad2(true);
         const time = timeDate();
@@ -174,6 +227,7 @@ const Upload = () => {
     } finally {
       setLoad2(false);
     }
+}
   };
 
   const tech = [
@@ -304,7 +358,6 @@ const Upload = () => {
                 </p>
               )}
             </div>
-
             <div className="flex flex-col gap-1">
               <label className="text-lg font-bold " htmlFor="live">
                 <span className="text-red-500 text-[10px]">*</span>Live URL

@@ -94,11 +94,26 @@ res.send(true)
 })
 
 app.get('/detail',async(req,res)=>{
+
     const {id} = req.query
    const data = await allProjects.find({_id:id})
    res.send(data);
    
 
+})
+
+app.post('/update',async(req,res)=>{
+    const {e,id} = req.body
+    const respo = await allProjects.replaceOne({_id:id},e)
+    res.send(respo)
+    
+})
+
+app.delete('/del/:id',async(req,res)=>{
+   const respo = await allProjects.deleteOne({_id:req.params.id})
+   res.send(respo)
+   
+    
 })
 
 app.listen(`${process.env.PORT}`||3000,()=>{
